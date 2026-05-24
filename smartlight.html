@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Light Real-Time Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Smart Lighting Control & Monitoring Dashboard</h1>
+            <p>Real-Time IoT Control Panel</p>
+        </header>
+
+        <div class="dashboard-grid">
+            
+            <div class="card" id="device-1">
+                <div class="card-header">
+                    <h3>Living Room Light</h3>
+                    <span class="status-indicator online">Online</span>
+                </div>
+                
+                <div class="data-section">
+                    <div class="data-item">
+                        <span class="label">Temperature</span>
+                        <span class="value" id="temp-1">24°C</span>
+                    </div>
+                    <div class="control-item">
+                        <span class="label">Brightness: <span id="bright-val-1">80</span>%</span>
+                        <input type="range" min="0" max="100" value="80" class="slider-bright" id="bright-1" oninput="updateBrightness(1)">
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <p>Power Control</p>
+                    <label class="switch">
+                        <input type="checkbox" id="ctrl-1" onchange="toggleLight(1)">
+                        <span class="slider round"></span>
+                    </label>
+                    <span id="state-1" class="state-text">OFF</span>
+                </div>
+
+                <div class="history-section">
+                    <p class="label">Status History</p>
+                    <canvas id="historyChart1"></canvas>
+                </div>
+
+                <div class="sync-section">
+                    <span class="sync-text">Last sync: <span id="sync-time-1">Never</span></span>
+                </div>
+            </div>
+
+            <div class="card" id="device-2">
+                <div class="card-header">
+                    <h3>Bedroom Light</h3>
+                    <span class="status-indicator online">Online</span>
+                </div>
+                
+                <div class="data-section">
+                    <div class="data-item">
+                        <span class="label">Temperature</span>
+                        <span class="value" id="temp-2">22°C</span>
+                    </div>
+                    <div class="control-item">
+                        <span class="label">Brightness: <span id="bright-val-2">50</span>%</span>
+                        <input type="range" min="0" max="100" value="50" class="slider-bright" id="bright-2" oninput="updateBrightness(2)">
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <p>Power Control</p>
+                    <label class="switch">
+                        <input type="checkbox" id="ctrl-2" onchange="toggleLight(2)">
+                        <span class="slider round"></span>
+                    </label>
+                    <span id="state-2" class="state-text">OFF</span>
+                </div>
+
+                <div class="history-section">
+                    <p class="label">Status History</p>
+                    <canvas id="historyChart2"></canvas>
+                </div>
+
+                <div class="sync-section">
+                    <span class="sync-text">Last sync: <span id="sync-time-2">Never</span></span>
+                </div>
+            </div>
+
+        </div> 
+    </div> 
+    <script src="script.js"></script>
+</body>
+</html>

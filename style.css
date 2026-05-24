@@ -1,0 +1,140 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    border: 1px solid #333;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.status-indicator.online {
+    color: #4caf50;
+    font-size: 0.8rem;
+}
+
+.data-section {
+    margin: 20px 0;
+}
+
+.value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00adb5;
+}
+
+/*switch styling*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input { display: none; }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px; width: 26px;
+    left: 4px; bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+/*slider brightness*/
+.slider-bright {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: #333;
+    outline: none;
+    margin: 10px 0;
+}
+
+.slider-bright::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #00adb5;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00adb5;
+}
+
+.history-section {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #333;
+    height: 150px; /* Tentukan tinggi grafik di sini */
+    position: relative;
+}
+
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.sync-section {
+    text-align: right;
+    margin-top: 12px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Garis batas tipis transparan */
+}
+
+.sync-text {
+    font-size: 11px;
+    color: #666666; /* Abu-abu redup khas dark mode */
+    font-family: sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.state-text {
+    font-weight: bold;
+    margin-left: 10px;
+    transition: 0.3s;
+}
+input:checked + .slider { background-color: #00adb5; }
+input:checked + .slider:before { transform: translateX(26px); }
